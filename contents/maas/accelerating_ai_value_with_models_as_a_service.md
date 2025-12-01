@@ -2,9 +2,9 @@
 
 **목차**
 
-1. [](accelerating_ai_value_with_models_as_a_service.md#1-model-as-a-service-소개)<br>
-2. [](accelerating_ai_value_with_models_as_a_service.md#2-maas-이해하기)<br>
-3. [](accelerating_ai_value_with_models_as_a_service.md#3-결론)<br>
+1. [MaaS 소개](accelerating_ai_value_with_models_as_a_service.md#1-model-as-a-service-소개)<br>
+2. [MaaS 이해하기](accelerating_ai_value_with_models_as_a_service.md#2-maas-이해하기)<br>
+3. [결론](accelerating_ai_value_with_models_as_a_service.md#3-결론)<br>
 
 <br>
 <br>
