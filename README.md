@@ -20,13 +20,18 @@
 **AI 추론 서비스**<br>
 * [llm-d: 쿠버네티스-네이티브 분산 추론](./contents/llm-d/llm-d_for_k8s-native_distributed_inferencing.md)<br>
 * [분산 AI 추론 서비스를 위한 llm-d](./contents/llm-d/llm-d_for_distributed_ai_inference.md)<br>
-* [llm-d를 통한 분산 추론](./contents/llm-d/intro_to_distributed_inference_with_llm-d.md)<br>
 * [효율적인 AI 추론을 위해 llm-d를 사용한 KV 캐시 인식 라우팅](./contents/llm-d/master_kv_cache_aware_routing_with_llm-d_for_efficient_ai_inference.md)<br>
 <br>
 <br>
 
 **AI 에이전트**<br>
 * [RHOAI를 통해 AI 에이전트 구축](./contents/ai-agent/build_ai_agent_via_rhoai.md)<br>
+<br>
+<br>
+
+**Model as a Service**<br>
+* [Model-as-a-Service를 통한 AI 가치 가속화](./contents/maas/accelerating_ai_value_with_models_as_a_service.md)<br>
+* [OpenShift AI에서 Models-as-a-Service 소개](./contents/maas/intro_model_as_a_service_in_openshift_ai.md)<br>
 <br>
 <br>
 
