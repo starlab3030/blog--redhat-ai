@@ -1,4 +1,4 @@
-# 오픈시프트 AI
+# 레드햇 AI 블로그 
 
 <img align="left" src="images/이승일--II_컴퓨터.png" height="250px" hrspace="25px" title="100px" alt="안녕"></img>
 
@@ -36,8 +36,7 @@
 <br>
 
 **오픈시프트 상에 Llama 스택**<br>
-* [Llama 스택 랩 소개](./llama_stack_on_openshift/intro_of_llama_stack_on_openshift.md)<br>
-<br>
+* [Llama 스택 랩 소개](./contents/llama_stack/intro_of_llama_stack_on_openshift.md)<br>
 <br>
 
 ------
