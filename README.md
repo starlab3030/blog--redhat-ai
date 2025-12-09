@@ -5,6 +5,16 @@
 <br>
 <br>
 
+**차례**
+* 모델훈련
+* GPU 활용
+* AI 추론 서비스
+* AI 에이전트
+* Model as a Service
+* Llama 스택
+
+<hr>
+
 **모델 훈련**<br>
 * [오픈시프트 상에서 KubeFlow를 통한 LLM Fine-Tuning](./contents/model-training/fine-tune_llms_with_kubeflow_trainer_on_openshift.md)<br>
 * [GPUDirect RDMA를 통한 모델 훈련 가속화](./contents/model-training/accelerate_model_training_with_nvidia_gpudirect_rdma.md)<br>
@@ -35,7 +45,7 @@
 <br>
 <br>
 
-**오픈시프트 상에 Llama 스택**<br>
+**Llama 스택**<br>
 * [Llama 스택 랩 소개](./contents/llama_stack/intro_of_llama_stack_on_openshift.md)<br>
 <br>
 
