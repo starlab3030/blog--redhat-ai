@@ -1,9 +1,9 @@
 # MCP 게이트웨이를 위한 고급 인증 및 권한 부여
 
-1. [AI 에이전트와 모델 컨텍스트 프로토콜](build_ai_agent_via_rhoai.md#1-ai-에이전트와-모델-컨텍스트-프로토콜)<br>
-2. [AI 에이전트 개발을 위한 유연한 RHOAI](build_ai_agent_via_rhoai.md#2-ai-에이전트-개발을-위한-유연한-rhoai)<br>
-3. [RHOAI 개발 경로 및 지원 옵션](build_ai_agent_via_rhoai.md#3-rhoai-개발-경로-및-지원-옵션)<br>
-4. [Llama 스택을 탑재한 RHOAI](build_ai_agent_via_rhoai.md#4-llama-스택을-탑재한-rhoai)<br>
+1. [MCP 게이트웨이와 보안 이슈](authentication_and_authorization_for_mcp_gw.md#1-mcp-게이트웨이와-보안-이슈)<br>
+2. [솔루션 방안](authentication_and_authorization_for_mcp_gw.md#2-솔루션-방안)<br>
+3. [사례 및 실행 방법](authentication_and_authorization_for_mcp_gw.md#3-사례-및-실행-방법)<br>
+4. [요약 및 참조](authentication_and_authorization_for_mcp_gw.md#4-요약-및-참조)<br>
 
 <br>
 <br>
