@@ -31,7 +31,8 @@
 * [llm-d: 쿠버네티스-네이티브 분산 추론](./contents/llm-d/llm-d_for_k8s-native_distributed_inferencing.md)<br>
 * [분산 AI 추론 서비스를 위한 llm-d](./contents/llm-d/llm-d_for_distributed_ai_inference.md)<br>
 * [효율적인 AI 추론을 위해 llm-d를 사용한 KV 캐시 인식 라우팅](./contents/llm-d/master_kv_cache_aware_routing_with_llm-d_for_efficient_ai_inference.md)<br>
-* [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)
+* [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)<br>
+* [vLLM 기반 추론 서비스 성능 진단 가이드 예제](./contents/llm-d/guide_to_llm_inference_performance_diagnosis.md)<br>
 <br>
 <br>
 
