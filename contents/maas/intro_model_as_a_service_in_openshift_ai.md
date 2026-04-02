@@ -8,8 +8,6 @@
 <br>
 <br>
 
-https://developers.redhat.com/articles/2025/11/25/introducing-models-service-openshift-ai#
-
 ## 1. 모델 서비스(MaaS)란
 
 ### 1.1 MaaS 장점
