@@ -281,6 +281,7 @@ done
 ### 3.2 모니터링
 
 RHOIA에서 모니터링를 설정
+
 ![MaaS를 위한 모니터링 설정](images/set_monitoring_of_rhoai_for_maas.png)
 * Grafana 대시보드를 구축
 * 프로메테우스 메트릭 연결 
