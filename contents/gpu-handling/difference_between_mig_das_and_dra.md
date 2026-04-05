@@ -54,7 +54,7 @@ NVIDIA GPU 관리 환경에서 MIG(Multi-Instance GPU), DAS(Dynamic Accelerator 
 
 ### 3.1 요약표
 
-|비교 항목  |MIG                         |DAS                             |DRA|
+|$\color{lime}{\texttt{비교 항목}}$|$\color{lime}{\texttt{MIG}}$|$\color{lime}{\texttt{DAS}}$|$\color{lime}{\texttt{DRA}}$|
 |:---:    |:---:                       |:---:                           |:---:|
 |핵심 역할  |하드웨어 물리적 분할             |MIG 기반 동적 슬라이싱               |버네티스 표준 동적 자원 할당|
 |작동 레이어|하드웨어 레벨<br>(펌웨어/드라이버)  |쿠버네티스 사용자 스페이스<br>(오퍼레이터)|쿠버네티스 컨트롤-플레인<br>(K8S)|
