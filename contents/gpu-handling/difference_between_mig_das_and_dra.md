@@ -1,10 +1,17 @@
 # GPU 리소스 관리에서 MIG, DAS, 그리고 DRA 비교
 
-
+**목차**
+1. [개요](difference_between_mig_das_and_dra.md#1-개요)<br>
+2. [기능별 요약](difference_between_mig_das_and_dra.md#2-기능별-요약)<br>
+3. [차이점 설명](difference_between_mig_das_and_dra.md#3-차이점-설명)<br>
+   3.1 [요약표](difference_between_mig_das_and_dra.md#31-요약표)<br>
+   3.2 [결론](difference_between_mig_das_and_dra.md#32-결론)<br>
+<br>
+<br>
 
 ## 1. 개요
 
-NVIDIA GPU 관리 환경에서 MIG(Multi-Instance GPU), DAS(Dynamic Accelerator Slicer), DRA(Dynamic Resource Allocation)는 GPU 자원 효율성을 높이기 위한 기술이지만, 그 접근 방식과 레이어(Hardware vs Software)에서 큰 차이가 있습니다.
+NVIDIA GPU 관리 환경에서 MIG(Multi-Instance GPU), DAS(Dynamic Accelerator Slicer), DRA(Dynamic Resource Allocation)는 GPU 자원 효율성을 높이기 위한 기술이지만, 그 접근 방식과 레이어(하드웨어 vs 소프트웨어)에서 큰 차이가 있습니다.
 
 핵심적인 차이는 MIG는 하드웨어 수준의 정적/독립적 분할, DAS는 쿠버네티스에서 MIG를 동적으로 조절하는 도구, DRA는 차세대 표준화된 동적 자원 할당 프레임워크라는 점입니다. 
 <br>
@@ -60,7 +67,7 @@ NVIDIA GPU 관리 환경에서 MIG(Multi-Instance GPU), DAS(Dynamic Accelerator 
 
 ### 3.2 결론
 
-MIG가 GPU를 나누는 방법(Physical Slicing)이라면, DAS는 요청에 따른 동적으르 나누는 기술은, 그리고 DRA는 그 나누는 기술을 어떻게 쿠버네티스에서 *언제*, *얼마나*'* 유연하게 쓸 것인가에 대한 소프트웨어적 접근 방식 입니다.
+MIG가 GPU를 나누는 방법(Physical Slicing)이라면, DAS는 요청에 따른 동적으르 나누는 기술은, 그리고 DRA는 그 나누는 기술을 어떻게 쿠버네티스에서 **언제**, **얼마나** 유연하게 쓸 것인가에 대한 소프트웨어적 접근 방식 입니다.
 
 * **MIG**: 안정적이고 격리된 성능
 * **DAS**: 기존의 MIG를 요청에 따른 동적 자동화 도구
