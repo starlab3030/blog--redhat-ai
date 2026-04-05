@@ -43,9 +43,9 @@
 * DAS 오퍼레이터는 개발 단계에서 또 다른 기능인 **동적 리소스 할당(DRA: Dynamic Resource Allocation)** 확장되어 대체되었음 
 * 오픈시프트에서 GPU 슬라이스를 동적으로 할당하고 관리하도록 설계
 * 주요 목표
-  + 동적 할당: Pod의 리소스 요청 및 제한 사항에 따라 MIG 슬라이스를 정확하게 프로비저닝
-  + 지능형 스케줄링: 쿠버네티스 스케줄링 게이트를 활용하여 필요한 GPU 슬라이스를 사용할 수 있을 때까지 Pod를 대기시킴
-  + 원활한 통합: NVIDIA GPU 오퍼레이터와 함께 작동하여 Pod 사양을 변경하지 않고도 GPU 슬라이스를 관리
+  + 동적 할당: 포드(pod)의 리소스 요청 및 제한 사항에 따라 MIG 슬라이스를 정확하게 프로비저닝
+  + 지능형 스케줄링: 쿠버네티스 스케줄링 게이트를 활용하여 필요한 GPU 슬라이스를 사용할 수 있을 때까지 포드(pod)를 대기시킴
+  + 원활한 통합: NVIDIA GPU 오퍼레이터와 함께 작동하여 포드(pod) 사양을 변경하지 않고도 GPU 슬라이스를 관리
   + 자동화된 수명 주기 관리: 할당을 추적하고 워크로드가 완료되면 GPU 슬라이스를 자동으로 해제
 
 #### 1.2.2 동적 GPU 슬라이싱 작동 방식
@@ -53,7 +53,7 @@
 동적 GPU 슬라이싱은 오픈시프트의 스케줄링 기본 요소를 활용하여 다음 세 단계 프로세스를 통해 리소스 사용을 최적화
 
 1. 동적 할당 및 배치
-   + Pod가 GPU 리소스를 요청하면 쿠버네티스 스케줄링 게이트를 통해 사전 예약된 상태로 유지
+   + 포드(pod)가 GPU 리소스를 요청하면 쿠버네티스 스케줄링 게이트를 통해 사전 예약된 상태로 유지
    + 오퍼레이터는 워크로드가 실행 준비가 되었을 때만 필요한 GPU 슬라이스를 동적으로 할당하여 사전 슬라이싱과 관련된 비효율성을 방지
 
 2. NVIDIA GPU 오퍼레이터와의 통합
@@ -74,7 +74,7 @@
 ### 2.1 사전 준비
 
 * 오픈시프트 클러스터
-  + NVidia A100 * 4*ea*가 장착된 워커 노드
+  + NVIDIA A100 * 4*ea*가 장착된 워커 노드
   + nvidia-driver-daemonset-417이상의 드라이버
 * `oc` CLI 도구
 * 오퍼레이터 SDK (오퍼레이터 번들 실행을 위해 필요)
@@ -161,16 +161,73 @@ $
 
 ### 2.4 사용중인 DAS 확인
 
-#### 2.4.1 vLLM 포드 확인
+#### 2.4.1 배포에서 요청한 vllm 템플릿 및 리소스 확인
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+  labels:
+    app: vllm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vllm
+  template:
+    metadata:
+      labels:
+        app: vllm
+    spec:
+      containers:
+      - name: vllm-container
+        image: quay.io/chenw615/vllm_dra
+        # command: ["/bin/sh", "-c"]
+        # #changes below command to run vLLM workload.
+        # args: ["sleep 99999"]
+        command:
+        - "python"
+        - "-m"
+        - "vllm.entrypoints.openai.api_server"
+        - "--model"
+        - "facebook/opt-125m"
+        ports:
+        - containerPort: 8000
+        env:
+        - name: HUGGING_FACE_HUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: huggingface-secret
+              key: HF_TOKEN
+        - name: MODEL_NAME
+          value: "facebook/opt-125m"
+        - name: TRANSFORMERS_CACHE
+          value: "/workspace/huggingface/"
+        - name: HF_HOME
+          value: "/workspace/huggingface/"
+        - name: NUMBA_DISABLE_JIT
+          value: "1"
+        - name: NUMBA_CACHE_DIR
+          value: "/workspace/huggingface/"
+        resources:
+          limits:
+            nvidia.com/mig-3g.20gb: 1 
+```
+* 모델: `facebook/opt-125m`
+* 리소스: `nvidia.com/mig-3g.20gb`
+
+#### 2.4.2 vLLM 포드 확인
 
 ```
 $ oc get pods  vllm-7dbb49b8f8-znd4s -o json | jq .metadata.uid
 "98c08795-2da3-4598-81b7-538c4e37093b"
+
 $
 ```
 * 포드의 UUID: 98c08795-2da3-4598-81b7-538c4e37093b
 
-#### 2.4.2 GPU가 장착된 워커노드의 인스트 슬라이스 확인
+#### 2.4.3 GPU가 장착된 워커노드의 인스트 슬라이스 확인
 
 실행 명령어
 ```bash
@@ -197,7 +254,7 @@ oc get instaslice work01 -o json | jq .status.podAllocationResults
 ```
 * 할당에 사용된 GPU의 UUID: GPU-143a66c4-bd69-7559-8898-26f9886a2a56
 
-#### 2.4.3 해당 워커노드에서 GPU 확안
+#### 2.4.4 해당 워커노드에서 GPU 확안
 
 실행 명령어
 ```bash
@@ -216,14 +273,15 @@ GPU 3: NVIDIA A100-SXM4-40GB (UUID: GPU-7cf6fcb8-d173-0224-618c-4813e24a3383)
 [root@worker01]#
 ```
 * GPU UUID가 일치하는 GPU-1에 MIG가 생성된 것 확인
+* 모델 배포에서 요청한 MIG 리소스 크기에 따른 `3g.20g`가 할당된 것을 확인
 
-#### 2.4.4 모델의 엔드포인트 포트 포워딩
+#### 2.4.5 모델의 엔드포인트 포트 포워딩
 
 ```bash
 oc port-forward svc/vllm 8000:8000 -n instaslice-system
 ```
 
-#### 2.4.5 모델 추론 서비스 테스트
+#### 2.4.6 모델 추론 서비스 테스트
 
 실행 명령어
 ```bash

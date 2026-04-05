@@ -16,11 +16,12 @@
 최신 데이터 사이언스 워크로드는 높은 연산 능력을 요구하며, 그래픽 처리 장치(GPU)는 이러한 작업의 핵심 역할을 하는 경우가 많습니다. 그러나 여러 사용자 또는 워크로드 간에 GPU 리소스를 효율적으로 공유하는 것은 어려울 수 있습니다. NVIDIA 멀티 인스턴스 GPU(MIG) 기술이 해결책을 제시합니다. 
 <br>
 
-### 1.2 NVidia MIG
+### 1.2 NVIDIA MIG
 
 **쿠버네티스 환경에서 GPU는 기본적으로 1:1 비율로 포드에 할당**
 * 즉, 워크로드가 GPU 용량을 완전히 활용하는지 여부와 관계없이 하나의 GPU가 하나의 포드에 할당
 * 이러한 제한은 특히 소규모 워크로드의 경우 리소스 사용의 비효율성을 초래할 수 있음
+<br>
 
 **NVIDIA MIG**
 * 단일 GPU를 여러 개의 독립 인스턴스로 분할하여 여러 포드에서 사용할 수 있도록 함으로써 이 문제를 해결
@@ -35,7 +36,7 @@
 <img src="images/1-lspci_worker_0.png.webp" title="100px" alt="워커-0의 GPU 확인"/>
 
 * Azure 상에 *Standard_NC24ads_A100_v4 가상머신
-* NVidia A100 PCIe 80GiB GPU를 갖춘 오픈시프트 AI
+* NVIDIA A100 PCIe 80GiB GPU를 갖춘 오픈시프트 AI
 <br>
 
 ### 2.2 NFD 설치
@@ -72,9 +73,9 @@ $
 * GPU 벤더, 모델, 메모리 등 확인 가능
 <br>
 
-### 2.3 NVidia GPU 오퍼레이터 구성
+### 2.3 NVIDIA GPU 오퍼레이터 구성
 
-#### 2.3.1 NVidia GPU 오퍼레이터 설치
+#### 2.3.1 NVIDIA GPU 오퍼레이터 설치
 
 <img src="images/4-gpu-operator.png.webp" title="100px" alt="GPU 오퍼레이터 설치"/>
 
@@ -104,7 +105,7 @@ oc get pods -n nvidia-gpu-operator
 
 ### 3.1 GPU 별 MIG 지원 프로파일 확인
 
-#### 3.1.1 NVidia A100-80GiB 지원 구성 확인 
+#### 3.1.1 NVIDIA A100-80GiB 지원 구성 확인 
 
 실행 명령어
 ```bash
@@ -240,7 +241,7 @@ $
 * 기업은 리소스 활용도를 극대화하고 비용을 절감
 * AI/ML 운영을 간소화
 
-OpenShift AI의 MIG는 다양한 워크로드를 관리하거나 다중 사용자 환경을 확장하는 등 어떤 작업이든 GPU 기술의 강력한 성능을 최대한 활용할 수 있도록 지원합니다.
+오픈시프트 AI의 MIG는 다양한 워크로드를 관리하거나 다중 사용자 환경을 확장하는 등 어떤 작업이든 GPU 기술의 강력한 성능을 최대한 활용할 수 있도록 지원합니다.
 <br>
 <br>
 
