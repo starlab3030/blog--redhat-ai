@@ -43,6 +43,7 @@
 * [RHOAI를 통해 AI 에이전트 구축](./contents/ai-agent/build_ai_agent_via_rhoai.md)<br>
 * [MCP 게이트웨이를 위한 고급 인증 및 권한 부여](./contents/ai-agent/authentication_and_authorization_for_mcp_gw.md)<br>
 * [AAP를 위한 MCP 서버 소개](./contents/ai-agent/intro_mcp_server_for_aap.md)<br>
+* [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
 <br>
 <br>
 
