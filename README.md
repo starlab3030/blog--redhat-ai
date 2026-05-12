@@ -42,6 +42,7 @@
 * [MCP를 사용하여 간단한 에이전트형 AI 서버를 구축하는 방법](./contents/ai-agent/howto_build_simple_agentic_ai_with_mcp.md)<br>
 * [RHOAI를 통해 AI 에이전트 구축](./contents/ai-agent/build_ai_agent_via_rhoai.md)<br>
 * [MCP 게이트웨이를 위한 고급 인증 및 권한 부여](./contents/ai-agent/authentication_and_authorization_for_mcp_gw.md)<br>
+* [오픈시프트를 위한 MCP 게이트웨이](./contents/ai-agent/mcp_gateway_for_openshift.md)<br>
 * [AAP를 위한 MCP 서버 소개](./contents/ai-agent/intro_mcp_server_for_aap.md)<br>
 * [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
 <br>
