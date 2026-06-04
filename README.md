@@ -35,6 +35,7 @@
 * [효율적인 AI 추론을 위해 llm-d를 사용한 KV 캐시 인식 라우팅](./contents/llm-d/master_kv_cache_aware_routing_with_llm-d_for_efficient_ai_inference.md)<br>
 * [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)<br>
 * [vLLM 기반 추론 서비스 성능 진단 가이드 예제](./contents/llm-d/guide_to_llm_inference_performance_diagnosis.md)<br>
+* [CPU 기반 AI 추론 벤치마킹](./contents/vllm/benchmark_ai_inference_on_cpus.md)<br>
 <br>
 <br>
 
