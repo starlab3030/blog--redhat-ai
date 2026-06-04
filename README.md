@@ -46,6 +46,7 @@
 * [오픈시프트를 위한 MCP 게이트웨이](./contents/ai-agent/mcp_gateway_for_openshift.md)<br>
 * [AAP를 위한 MCP 서버 소개](./contents/ai-agent/intro_mcp_server_for_aap.md)<br>
 * [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
+* [AI 에이전트를 위한 메모리 아키텍처 설계](./contents/ai-agent/architect_memory_for_ai_agents.md)
 <br>
 <br>
 

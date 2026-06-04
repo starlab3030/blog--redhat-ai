@@ -1,11 +1,11 @@
 # AI 에이전트를 위한 메모리 아키텍처 설계
 
-1. []()<br>
-2. []()<br>
-3. []()<br>
-4. []()<br>
-
-
+1. [추론 서비스 상에 메모리](architect_memory_for_ai_agents.md#1-추론-서비스-상에-메모리)<br>
+2. [현재 추론 서비스](architect_memory_for_ai_agents.md#2-현재-추론-서비스)<br>
+3. [용어 및 E2E 아키텍처 예시](architect_memory_for_ai_agents.md#3-용어-및-e2e-아키텍처-예시)<br>
+4. [관련 분야의 커뮤니티 및 오픈 소스 프로젝트](architect_memory_for_ai_agents.md#4-관련-분야의-커뮤니티-및-오픈-소스-프로젝트)<br>
+5. [OpenClaw와 Mem0 메모리 예제](architect_memory_for_ai_agents.md#5-openclaw와-mem0-메모리-예제)<br>
+6. [요약 및 참조](architect_memory_for_ai_agents.md#6-요약-및-참조)<br>
 <br>
 <br>
 
@@ -106,7 +106,7 @@ LLM(학습 라이프사이클 관리자)과의 모든 세션에서 매번 대화
 * 세션 메모리
   + 단일 에이전트-LLM 세션 내의 질의 및 응답 기록을 모두 포함
   + 수명은 하나의 세션으로 제한
-  + 예) OpenAI Responses API 대화 상태 관리 구현
+  + 예) OpenAI [Responses API 대화 상태 관리 구현](https://developers.openai.com/api/docs/guides/conversation-state)
 
 * 장기 파일 시스템 메모리
   + 파일 시스템에 파일 형태로 저장되는 메모리로, 종종 추가적인 인덱싱 기능을 포함
@@ -116,7 +116,7 @@ LLM(학습 라이프사이클 관리자)과의 모든 세션에서 매번 대화
   + 사건과 시간적 순서를 중심으로 구성된 지속적인 메모리
   + 개별 세션 기간을 넘어 오래 지속됨
 
-* 장기 시만틱 기억
+* 장기 시만틱 메모리
   + 의미 검색 및 추출을 가능하게 하기 위해 임베딩을 사용하여 저장된 영구 메모리
   + 일반적으로 그래프 메타데이터 및 인덱싱으로 보강된 벡터 데이터베이스에 저장
 
@@ -194,27 +194,159 @@ LLM(학습 라이프사이클 관리자)과의 모든 세션에서 매번 대화
 
 ### 4.1 [Mem0 프로젝트](https://github.com/mem0ai/mem0)
 
-* 대화에서 유용한 정보를 자동으로 추출하고 저장하고, 정리하고, 세션 간에 다음 프롬프트에 다시 입력할 수 있도록 불러오는 AI 비서 및 에이전트를 위한 메모리 레이어 구축에 중점
-* 에이전트 하네스 스킬 사용 여부와 관계없이 다양한 메모리 추출 옵션을 제공
-  + 이러한 기능은 인라인 에이전트 추론과 비동기적으로 작동합니다. LoCoMo와 같이 긴 대화 메모리를 사용하는 벤치마크에서 우수한 결과를 보여 주고 있습니다. Mem0 오픈 소스 프로젝트는 로컬 AI 환경뿐만 아니라 Mem0 클라우드 플랫폼을 통해서도 여러 에이전트 하네스의 메모리 플러그인으로 배포할 수 있습니다. 다음 섹션에서는 OpenClaw와 Mem0을 함께 사용하는 간단한 초기 예제를 살펴보겠습니다. 향후 연구에서 이 부분을 더 자세히 다루고 결과를 블로그 게시물에서 공유할 예정입니다.
+* 다음 역할을 하는 AI 비서 및 에이전트를 위한 메모리 레이어 구축에 중점
+  + 대화에서 유용한 정보를 자동으로 추출/저장/정리
+  + 해당 내용을 세션 간에 다음 프롬프트에 다시 입력할 수 있도록 불러옴
 
+* 에이전트 하네스 스킬 사용 여부와 관계없이 다양한 메모리 추출 옵션을 제공
+  + 이러한 기능은 인라인 에이전트 추론과 비동기적으로 작동
+
+* [Mem0의 벤치마크 성능](https://mem0.ai/blog/mem0-the-token-efficient-memory-algorithm)
+  |벤치마크     |기존 알고리즘|신규 알고리즘|질의 별 평균 토큰 수|
+  |:---       |:---:    |:---:     |:---:|
+  |LoCoMo     |71.4     |91.6      |6,956|
+  |LongMemEval|67.8     |93.4      |6,787|
+  |BEAM (1M)  |—        |64.1      |6,719|
+  |BEAM (10M) |—        |48.6      |6,914|
+
+> [!NOTE]
+> Mem0 오픈 소스 프로젝트는 로컬 AI 환경뿐만 아니라 Mem0 클라우드 플랫폼을 통해서도 여러 에이전트 하네스의 메모리 플러그인으로 배포할 수 있습니다.
+<br>
+
+### 4.2 OpenClaw 에이전트 프로젝트의 [사용자 정의 메모리 아키텍처](https://docs.openclaw.ai/concepts/memory)
+
+* 내장된 에이전트 메모리 기능과 외부 메모리 공급자(mem0 등)를 플러그인할 수 있는 옵션을 모두 갖춘 사용자 정의 가능한 메모리 아키텍처
+* OpenClaw의 내장 메모리는 파일 기반이며 명시적
+  + 에이전트는 주로 워크스페이스에 플레인 형태의 Markdown을 써서 "기억"
+  + 주로 *MEMORY.md* 파일이며, 지속적인 사실 관계 및 일일 메모를 위해 *memory/YYYY-MM-DD.md* 형태로 저장
+* 런타임 시, 활성 메모리 플러그인(기본값으로 *memory-core*)은 해당 파일에에 대하여 키워드 검색 및 선택적 벡터 검색을 사용하는 *memory_search*와 *memory_get*을 제공
+* 대화를 압축하기 전에 OpenClaw는 중요한 컨텍스트가 손실되지 않도록 자동 "메모리 플러시" 과정을 실행
+* 선택적 "꿈꾸기(dreaming)" 파이프라인은 나중에 단기 메모를 더 중요한 장기 메모리로 통합
+* 플러그인 아키텍처는 외부 플러그인이 추가적인 에이전트 메모리 기능을 제공할 수 있도록 지원
+<br>
+
+### 4.3 Claude 에이전트 프로젝트
+
+* [Claude Code](https://code.claude.com/docs/en/memory), [Codex](https://developers.openai.com/codex/memories), [Letta](https://developers.openai.com/codex/memories), [Mastra](https://mastra.ai/docs/memory/overview) 등 많은 코딩 에이전트들은 코딩 작업뿐 아니라 일반적인 작업에도 활용될 수 있도록 메모리 아키텍처를 개발해 옴
+  + 잘 설계된 메모리 아키텍처는 코딩 워크플로우에 매우 중요
+  + 코딩 워크플로우에서 이러한 에이전트들은 저장소 구조, 이전 디버깅 시도, 코딩 선호도, 여러 세션에 걸쳐 수행되는 장기 실행 작업 등을 기억해야 하는 경우가 많음
+  + 이러한 장기-메모리(LTM) 기능은 에이전트를 보다 일반적인 워크플로우에 적용할 때 큰 장점이 됨
+  
+* Claude 에이전트 메모리 기술
+  + 단순한 에이전트 메모리의 초기 형태라고 볼 수 있는 [CLAUDE.md](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts) 파일로 시작
+  + Claude(및 기타 유사한 코딩 에이전트)는 이제 [고급 메모리 및 기억 저장 기능](https://www.youtube.com/watch?v=RtywqDFBYnQ)을 도입하고 있음
+<br>
+
+### 4.4 [안드레이 카르파티](https://karpathy.ai/)의 [LLM-Wiki 프로젝트](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)에서 파생된 프로젝트
+
+* 이 프로젝트들은 위키 스타일의 지식 조직을 언어 모델과 에이전트를 위한 장기 기억 시스템으로 활용하는 아이디어를 탐구
+* 원시 데이터가 입력되면, 연결된 노트로 구성된 위키와 유사한 파생 메모리 기반으로 "컴파일"
+  + 이러한 노트는 큐레이션, 발전, 그리고 위키 탐색 기능을 갖춘 에이전트가 활용할 수 있도록 제공
+* 이 프로젝트의 관심은 유사하거나 상호 보완적인 프로젝트들의 생태계를 조성
+  + 예) [Graphify](https://graphify.net/)와 [Graphiti](https://github.com/getzep/graphiti)는 위키 노트뿐 아니라 원시 데이터로부터 보다 구조화되고 기계 지향적인 그래프 데이터베이스를 생성하는 도구
+<br>
+
+### 4.5 주목할 만한 다른 프로젝트
+
+* 프로젝트 리스트
+  + [agentmemory](https://github.com/rohitg00/agentmemory)
+  + [OpenViking](https://github.com/volcengine/OpenViking)
+  + [MemoryHub](https://github.com/redhat-ai-americas/memory-hub)
+  + [Zep/Graphiti](https://github.com/getzep/zep)
+  + [Honcho](https://github.com/plastic-labs/honcho)
+
+* 모두 영구적인 에이전트 메모리와 장기적인 컨텍스트 관리를 위한 다양한 추상화 방식을 탐구
+* 이러한 프로젝트들은 개인용 AI와 기업용 AI 중 어느 쪽에 초점을 맞추는지 따라 다름
+  + 배포 옵션, 에이전트 메모리의 세분성 및 유형, 기업 보안, 그리고 거버넌스 보안 기능에서 차이가 있음
+  + 상당수는 아직 실험 단계
+  
+> [!NOTE]
+> 상당수의 프로젝트들이 아직 실험 단계이지만, 이들을 통해, 오픈 소스 커뮤니티가, "AI 에이전트를 더욱 상태 저장 가능하게 만들고 개인용 AI는 물론 새롭게 부상하는 기업 수준의 에이전트 AI를 위해 더욱 풍부한 메모리 기능을 추가하는 과제를 얼마나 빠르게 해결"해 나가고 있는지를 보여줍니다.
 <br>
 <br>
 
 ## 5. OpenClaw와 Mem0 메모리 예제
 
+테스트 예제는 [OpenClaw의 메모리 데모](https://github.com/redhat-et/openclaw-mem-demo/tree/main) 예제를 사용하였습니다.
+
+### 5.1 OpenClaw의 마크다운 파일
+
+* OpenClaw는 세션 간에 유지되는 일련의 마크다운 파일이라는 기본적인 메모리 솔루션을 기본적으로 제공
+  + 이 파일들은 시작 시 컨텍스트에 로드
+  + 특정 작업 세부 정보보다는 사용자의 신원, 선호도, 그리고 OpenClaw 자체의 특성을 기억하는 데 중점
+
+* 에이전트는 이러한 메모리 파일을 업데이트 가능
+  + 그러나, 업데이트 여부를 선택하거나 기억 필요
+  + 이러한 판단이 얼마나 달라질 수 있는지 보여주기 위해, 각 턴마다 추출 파이프라인을 실행하는 Mem0 플러그인과 OpenClaw를 나란히 비교 테스트
+<br>
+
+### 5.2 에이전트에게 두 세션으로 구성된 작업을 부여
+
+#### 5.2.1 작업 내용
+
+* 작업 
+  + 무료 날씨 API를 조사하고 '비콘(Beacon)'이라는 취미 프로젝트에 적합한 API를 추천
+  + 다음, 새 세션을 시작하여 이전 세션에서 중단된 부분부터 이어서 진행
+* 동일한 스크립트를 사용했지만 구성은 두 가지
+  ```
+  현재 이용 가능한 최고의 무료 날씨 API들을 조사하고, 'Beacon'이라는 프로젝트에 가장 적합한 API를 추천해 주세요. 무료 이용 혜택이 풍부하고 사용하기 쉬운 API를 원합니다.
+  ```
+
+#### 5.2.2 [Mem0 플러그인](https://docs.mem0.ai/integrations/openclaw)이 없는 경우
+
+* 첫 번째 세션은 두 경우 모두 동일
+  + 상담원은 여러 옵션을 조사
+  + 이 후 [Open-Meteo](https://open-meteo.com/) (API 키 필요 없음, 월 30만 회 호출 무료, 오픈 소스)를 선택했고, 구축을 시작해 보겠다고 제안
+
+* 두 번째 세션에서 두 설정의 차이가 발생
+  + 기본 설정에서는 상담원이 이전 대화 내용을 기억하지 못함
+  + 이 때문에 다음 답변 받음
+    ```
+    저는 'Beacon 프로젝트'나 저희가 논의했던 API에 대한 기록을 전혀 가지고 있지 않습니다. 제가 알기로는 이번이 저희가 처음으로 대화를 나눈 것입니다.
+    ```
+
+#### 5.2.3 [Mem0 플러그인](https://docs.mem0.ai/integrations/openclaw)이 설치된 경우
+
+* 첫 번째 세션은 동일
+* 두 번째 세션에서는 컨텍스트를 즉시 인식하고 프로젝트를 스캐폴딩한 다음 실제 API를 대상으로 실행
+  ```
+  실시간 데이터가 전송 중입니다. 현재 더블린의 기온은 15.6°C이며 흐린 날씨입니다. Beacon은 설치 작업을 완료하고 정상적으로 작동하며 커밋되었습니다.
+  ```
+
+#### 5.2.4 테스트 결과 설명
+
+* 테스트 결과를 보면, 바로 영구 메모리가 있는 것과 없는 것의 차이를 알 수 있음
+  + 에이전트는 기술적으로 컨텍스트를 저장할 수 있음
+  + 이를 통해, 테스트 중에 이름이나 선호도 같은 개인 상세 정보가 유지됨
+
+* 단일 프롬프트 후에 명확한 브리핑을 놓치면, 이러한 판단은 수주간의 작업 과정에서 점점 더 신뢰도를 잃게 됨
+  + Mem0은 이러한 위험을 제거
 <br>
 <br>
 
 ## 6. 요약 및 참조
 
-### 6.1 
+### 6.1 요약
 
+블로그에서 **에이전트 메모리**라는 중요하고 새롭게 떠오르는 주제에 대한 간략하게 소개하였습니다. 향후에는 개인 및 기업들이 이러한 주제에 대한 연구를 계속 진행하면서 추가적인 연구 결과와 분석 내용들이 나올 것으로 예상됩니다.
 <br>
 
 ### 6.2 참조
 
-* [Mem0 프로젝트](https://github.com/mem0ai/mem0)
+* 데모
+  + OpenClaw의 메모리 데모 [[GitHub](https://github.com/redhat-et/openclaw-mem-demo/tree/main)]
+
+* 논문
+  + 스탠포드 [메타 하네스 논문](https://arxiv.org/abs/2603.28052)
+  + 카네기 멜론 대학교의 [외부화 논문](https://arxiv.org/abs/2604.08224)
+  + 안드레이 카르파티의 [LLM 위키 프로젝트](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), + 구글의 [시뮬라크라 논문](https://research.google/pubs/generative-agents-interactive-simulacra-of-human-behavior/)
+
+* 메모리 기술 관련 기업 및 커뮤니트 프로젝트 
+  + Anthropic의 관리형 에이전트 API 내의 [Memory 및 Dreaming 제품](https://youtu.be/RtywqDFBYnQ?si=CapThW07W-Z-HqHs)
+  + Langgraph의 [에이전트 하네스 메모리](https://www.langchain.com/blog/your-harness-your-memory)
+  + [OpenClaw의 사용자 정의 메모리 아키텍처](https://docs.openclaw.ai/concepts/memory)
+  + OpenAI의 [Responses API 대화 상태 관리 구현](https://developers.openai.com/api/docs/guides/conversation-state)
+  + [Mem0 프로젝트](https://github.com/mem0ai/mem0)
 
 <br>
 <br>
