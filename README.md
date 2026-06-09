@@ -36,7 +36,6 @@
 * [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)<br>
 * [vLLM 기반 추론 서비스 성능 진단 가이드 예제](./contents/llm-d/guide_to_llm_inference_performance_diagnosis.md)<br>
 * [CPU 기반 AI 추론 벤치마킹](./contents/vllm/benchmark_ai_inference_on_cpus.md)<br>
-* [MCP 서버와 에이전트를 위한 스킬](./contents/ai-agent/mcp_server_and_agent_skill.md)<br>
 <br>
 <br>
 
@@ -48,6 +47,7 @@
 * [AAP를 위한 MCP 서버 소개](./contents/ai-agent/intro_mcp_server_for_aap.md)<br>
 * [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
 * [AI 에이전트를 위한 메모리 아키텍처 설계](./contents/ai-agent/architect_memory_for_ai_agents.md)
+* [MCP 서버와 에이전트를 위한 스킬](./contents/ai-agent/mcp_server_and_agent_skill.md)<br>
 <br>
 <br>
 
