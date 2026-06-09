@@ -36,6 +36,7 @@
 * [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)<br>
 * [vLLM 기반 추론 서비스 성능 진단 가이드 예제](./contents/llm-d/guide_to_llm_inference_performance_diagnosis.md)<br>
 * [CPU 기반 AI 추론 벤치마킹](./contents/vllm/benchmark_ai_inference_on_cpus.md)<br>
+* [MCP 서버와 에이전트를 위한 스킬](./contents/ai-agent/mcp_server_and_agent_skill.md)<br>
 <br>
 <br>
 
