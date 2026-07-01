@@ -339,12 +339,13 @@ LLM(학습 라이프사이클 관리자)과의 모든 세션에서 매번 대화
 * 논문
   + 스탠포드 [메타 하네스 논문](https://arxiv.org/abs/2603.28052)
   + 카네기 멜론 대학교의 [외부화 논문](https://arxiv.org/abs/2604.08224)
-  + 안드레이 카르파티의 [LLM 위키 프로젝트](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), + 구글의 [시뮬라크라 논문](https://research.google/pubs/generative-agents-interactive-simulacra-of-human-behavior/)
+  + 안드레이 카르파티의 [LLM 위키 프로젝트](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+  + 구글의 [시뮬라크라 논문](https://research.google/pubs/generative-agents-interactive-simulacra-of-human-behavior/)
 
 * 메모리 기술 관련 기업 및 커뮤니트 프로젝트 
   + Anthropic의 관리형 에이전트 API 내의 [Memory 및 Dreaming 제품](https://youtu.be/RtywqDFBYnQ?si=CapThW07W-Z-HqHs)
   + Langgraph의 [에이전트 하네스 메모리](https://www.langchain.com/blog/your-harness-your-memory)
-  + [OpenClaw의 사용자 정의 메모리 아키텍처](https://docs.openclaw.ai/concepts/memory)
+  + OpenClaw의 [사용자 정의 메모리 아키텍처](https://docs.openclaw.ai/concepts/memory)
   + OpenAI의 [Responses API 대화 상태 관리 구현](https://developers.openai.com/api/docs/guides/conversation-state)
   + [Mem0 프로젝트](https://github.com/mem0ai/mem0)
 
