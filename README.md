@@ -26,6 +26,7 @@
 * [오픈시프트 AI 상에 동적 GPU 슬라이싱](./contents/gpu-handling/dynamic_gpu_slicing_in_openshift.md)
 * [AI 워크로드를 위한 스마트한 GPU 스케줄링](./contents/gpu-handling/smarter_gpu_scheduling_for_ai_workload.md)
 * [GPU 리소스 관리에서 MIG, DAS, 그리고 DRA 비교](./contents/gpu-handling/difference_between_mig_das_and_dra.md)
+* [NVIDIA DGX Spark를 위한 리눅스 커널 구축](./contents/gpu-handling/build_linux_kernel_for_nvidia_dgx_spark.md)
 <br>
 <br>
 
