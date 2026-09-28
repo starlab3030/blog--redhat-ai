@@ -1,11 +1,29 @@
 # AutoRAG를 통해 상담원에게 맞춤형 지식을 제공
 
-1. []()<br>
-2. []()<br>
+1. [랩 환경 준비](bring_custom_kb_to_agents_with_autorag.md#1-랩-환경-준비)<br>
+2. [오픈시프트 AI 설정 및 스토리지 구성](bring_custom_kb_to_agents_with_autorag.md#2-오픈시프트-ai-설정-및-스토리지-구성)<br>
+   2.1 [리포지토리 복제](bring_custom_kb_to_agents_with_autorag.md#21-리포지토리-복제)<br>
+   2.2 [OGX 오퍼레이터 활성화](bring_custom_kb_to_agents_with_autorag.md#22-ogx-오퍼레이터-활성화)<br>
+   2.3 [MCP 카탈로그와 AutoRAG 인터페이스를 활성화](bring_custom_kb_to_agents_with_autorag.md#23-mcp-카탈로그와-autorag-인터페이스를-활성화)<br>
+   2.4 [스토리지 스택을 설정](bring_custom_kb_to_agents_with_autorag.md#24-스토리지-스택을-설정)<br>
+   2.5 [생성된 MinIO 스토리지 확인](bring_custom_kb_to_agents_with_autorag.md#25-생성된-minio-스토리지-확인)<br>
+3. [AI 모델 및 OGX 서버 배포](bring_custom_kb_to_agents_with_autorag.md#3-ai-모델-및-ogx-서버-배포)
+   3.1 [LLM 모델 배포](bring_custom_kb_to_agents_with_autorag.md#31-llm-모델-배포)<br>
+   3.2 [AutoRAG에서 사용할 임베딩 모델 배포](bring_custom_kb_to_agents_with_autorag.md#32-autorag에서-사용할-임베딩-모델-배포)<br>
+   3.3 [OGX 서버 배포](bring_custom_kb_to_agents_with_autorag.md#33-ogx-서버-배포)<br>
+4. [AutoRAG를 통한 평가](bring_custom_kb_to_agents_with_autorag.md#4-autorag를-통한-평가)
+   4.1 [시크릿 생성 및 스토리지 연결](bring_custom_kb_to_agents_with_autorag.md#41-시크릿-생성-및-스토리지-연결)<br>
+   4.2 [AutoRAG 구성](bring_custom_kb_to_agents_with_autorag.md#42-autorag-구성)<br>
+   4.3 [파이프라인 실행 및 RAG 평가 확인](bring_custom_kb_to_agents_with_autorag.md#43-파이프라인-실행-및-rag-평가-확인)<br>
+5. [MCP/앱 배포 및 연결 테스트](bring_custom_kb_to_agents_with_autorag.md#5-mcp앱-배포-및-연결-테스트)
+   5.1 [MCP 카탈로그에서 MCP 서버 배포](bring_custom_kb_to_agents_with_autorag.md#51-mcp-카탈로그에서-mcp-서버-배포)<br>
+   5.2 [앱 배포](bring_custom_kb_to_agents_with_autorag.md#52-앱-배포)<br>
+   5.3 [앱 테스트](bring_custom_kb_to_agents_with_autorag.md#53-앱-테스트)<br>
+99. [참조](bring_custom_kb_to_agents_with_autorag.md#99-참조)
 <br>
 <br>
 
-## 1. 
+## 1. 랩 환경 준비
 
 ### 1.1 학습 데이터와 AutoRAG
 
@@ -1028,7 +1046,7 @@ oc apply -f 5-autorag/knowledge-connection.yaml -n ogx
 <br>
 <br>
 
-## 5. 
+## 5. MCP/앱 배포 및 연결 테스트
 
 ### 5.1 MCP 카탈로그에서 MCP 서버 배포
 
@@ -1316,6 +1334,8 @@ Show me the information for the client with email elena.martinez@email.com
 ```
 What's the limit of its Gold card?
 ```
+<br>
+<br>
 
 ## 99. 참조
 
@@ -1328,7 +1348,6 @@ What's the limit of its Gold card?
 ### 99.2 참조 문서
 
 * [오픈시프트 AI AutoRAG 문서](https://developers.redhat.com/articles/2026/09/11/bringing-custom-knowledge-agents-autorag?sc_cid=RHCTG0260000496584&mkt_tok=NDI3LVRCQy00NzQAAAGkZFOSBvO5_lr7pMs65QLmwAt6M8xjikvaGKUjCcGAlHPYO0ZyOnijwVfHZW_tUjZ-DL700TC11WeX5oJPh2bwWJnxrod-HdRdmc8TKMEO0V015g#7__try_out_the_final_agent_:~:text=OpenShift%20AI%20AutoRAG%20%EB%AC%B8%EC%84%9C%EB%A5%BC%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B1%B0%EB%82%98)
-
 <br>
 <br>
 
