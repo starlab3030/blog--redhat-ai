@@ -27,5 +27,12 @@
 <br>
 <br>
 
+<!-- 
+https://developers.redhat.com/articles/2026/06/24/optimizing-distributed-ai-inference-advanced-deployment-patterns#
+-->
+
+<br>
+<br>
+
 ------
 [차례](/README.md)

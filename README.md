@@ -51,7 +51,7 @@
 * [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
 * [AI 에이전트를 위한 메모리 아키텍처 설계](./contents/ai-agent/architect_memory_for_ai_agents.md)
 * [MCP 서버와 에이전트를 위한 스킬](./contents/ai-agent/mcp_server_and_agent_skill.md)<br>
-* [AutoRAG를 통해 상담원에게 맞추형 지식을 제공](./contents/ai-agent/bring_custom_kb_to_agents_with_autorag.md)<br>
+* [AutoRAG를 통해 에이전트에게 맞추형 지식을 제공](./contents/ai-agent/bring_custom_kb_to_agents_with_autorag.md)<br>
 <br>
 <br>
 
