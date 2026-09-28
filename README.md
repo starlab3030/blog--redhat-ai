@@ -37,6 +37,8 @@
 * [vLLM 성능 문제 해결을 위한 5단계](./contents/llm-d/five_steps_to_address_vllm_performance.md)<br>
 * [vLLM 기반 추론 서비스 성능 진단 가이드 예제](./contents/llm-d/guide_to_llm_inference_performance_diagnosis.md)<br>
 * [CPU 기반 AI 추론 벤치마킹](./contents/vllm/benchmark_ai_inference_on_cpus.md)<br>
+* [분산형 AI 추론 설계: 핵심 개념 및 확장성 고려 사항](./contents/llm-d/design_distributed_ai_Inference.md)<br>
+* [분산형 AI 추론 최적화: 고급 배포 패턴](./contents/llm-d/optimize_distributed_ai_inference.md)<br>
 <br>
 <br>
 
@@ -49,6 +51,7 @@
 * [AI 지원 개발을 위한 구조화된 워크플로우 (Harness 엔지니어링)](./contents/ai-agent/structured_workflow_for_ai_assisted_dev.md)<br>
 * [AI 에이전트를 위한 메모리 아키텍처 설계](./contents/ai-agent/architect_memory_for_ai_agents.md)
 * [MCP 서버와 에이전트를 위한 스킬](./contents/ai-agent/mcp_server_and_agent_skill.md)<br>
+* [AutoRAG를 통해 상담원에게 맞추형 지식을 제공](./contents/ai-agent/bring_custom_kb_to_agents_with_autorag.md)<br>
 <br>
 <br>
 
