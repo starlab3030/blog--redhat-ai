@@ -1,15 +1,23 @@
 # Lightwell 재구축을 통해 Java 전이적 종속성 관리
 
 **목차**
-1. [](manage_java_transitive_dependencies_with_lightwell_rebuild.md)<br>
-
-
+1. [Java 소프트웨어 공급망과 Lightwell](manage_java_transitive_dependencies_with_lightwell_rebuild.md#1-java-소프트웨어-공급망과-lightwell)<br>
+   1.1 [종속성 관리 및 Lightwell](manage_java_transitive_dependencies_with_lightwell_rebuild.md#11-종속성-관리-및-lightwell)<br>
+   1.2 [자바 소프트웨어 공급망의 숨겨진 과제](manage_java_transitive_dependencies_with_lightwell_rebuild.md#12-자바-소프트웨어-공급망의-숨겨진-과제)<br>
+2. [Lightwell 재구축을 위한 3가지 통합 전략](manage_java_transitive_dependencies_with_lightwell_rebuild.md#2-lightwell-재구축을-위한-3가지-통합-전략)<br>
+   2.1 [수동 검색 및 개별 선택](manage_java_transitive_dependencies_with_lightwell_rebuild.md#21-수동-검색-및-개별-선택)<br>
+   2.2 [표적화된 의존성 분석](manage_java_transitive_dependencies_with_lightwell_rebuild.md#22-표적화된-의존성-분석)<br>
+   2.3 [생성된 자제 명세서를 사용한 종속성 고정](manage_java_transitive_dependencies_with_lightwell_rebuild.md#23-생성된-자재-명세서를-사용한-종속성-고정)<br>
+3. [전략 비교 및 고려 사항](manage_java_transitive_dependencies_with_lightwell_rebuild.md#3-전략-비교-및-고려-사항)<br>
+   3.1 [전략 비교 매트릭스](manage_java_transitive_dependencies_with_lightwell_rebuild.md#31-전략-비교-매트릭스)<br>
+   3.2 [고려 사항](manage_java_transitive_dependencies_with_lightwell_rebuild.md#32-고려-사항)<br>
+99. [참조](manage_java_transitive_dependencies_with_lightwell_rebuild.md#99-참조)<br>
 <br>
 <br>
 
-## 1.
+## 1. Java 소프트웨어 공급망과 Lightwell
 
-### 1.1 
+### 1.1 종속성 관리 및 Lightwell
 
 #### 1.1.1 Java에서 종속성 관리
 
